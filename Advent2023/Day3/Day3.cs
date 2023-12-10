@@ -7,9 +7,9 @@ using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using static Advent2024.Day3;
+using static Advent2023.Day3;
 
-namespace Advent2024
+namespace Advent2023
 {
     internal static class Day3
     {
@@ -25,16 +25,16 @@ namespace Advent2024
                 {
                     Partnumber CapturingPartnumber = null;
                     int captureStart = -1;
-                    for(int x = 0; x < line.Length; x++)
+                    for (int x = 0; x < line.Length; x++)
                     {
                         char symbol = line[x];
                         SchematicLocation point = new SchematicLocation(schematicPoints.Count, symbol.ToString(), null);
 
                         if (Char.IsDigit(symbol))
                         {
-                            if(captureStart == -1)
+                            if (captureStart == -1)
                             {
-                                CapturingPartnumber = new Partnumber() { Value = symbol.ToString()};
+                                CapturingPartnumber = new Partnumber() { Value = symbol.ToString() };
                                 captureStart = x;
                             }
                             else
@@ -44,9 +44,9 @@ namespace Advent2024
 
                             point.PN = CapturingPartnumber;
                         }
-                        else 
+                        else
                         {
-                            if(captureStart != -1)
+                            if (captureStart != -1)
                             {
                                 captureStart = -1;
                                 CapturingPartnumber = null;
@@ -57,7 +57,7 @@ namespace Advent2024
                     y++;
                 }
 
-               
+
                 Schematic schematic = new Schematic(schematicPoints, y);
                 Console.WriteLine($"Day 3: Part 1: {Solve_Part1(schematic)}");
                 Console.WriteLine($"Day 3: Part 2: {Solve_Part2(schematic)}");

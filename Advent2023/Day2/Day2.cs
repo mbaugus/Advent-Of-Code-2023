@@ -7,7 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Advent2024
+namespace Advent2023
 {
     internal class Day2
     {
